@@ -1,0 +1,54 @@
+erver:
+  port: 7979
+  servlet:
+    context-path: /
+  shutdown: graceful
+  http:
+    port: 7979
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  ############################################################
+  # DataSource 설정
+  ############################################################\
+  datasource:
+    hikari:
+      primary:
+        driver-class-name:
+        jdbc-url:
+        username:
+        password:
+        connectionTimeout:
+        validationTimeout:
+        idleTimeout:
+        maxLifetime:
+        minimumIdle:
+        maximumPoolSize:
+      secondary:
+        driverClassName:
+        jdbc-url:
+        username:
+        password:
+        connectionTimeout:
+        validationTimeout:
+        idleTimeout:
+        maxLifetime:
+        minimumIdle:
+        maximumPoolSize:
+  session:
+    store-type: jdbc
+#    jdbc:
+#      initialize-schema: always
+
+#  ############################################################
+#  # Restful Client Configuration
+#  ############################################################
+#  restTemplate:
+#    factory:
+#      readTimeout: 60000
+#      connectTimeout: 60000
+#    httpClient:
+#      maxConnTotal: 100
+#      maxConnPerRoute: 5
