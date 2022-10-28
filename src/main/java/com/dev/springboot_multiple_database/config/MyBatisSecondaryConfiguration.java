@@ -16,14 +16,14 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@MapperScan(value="com.dev.springboot_multiple_database.mapper.database2", sqlSessionFactoryRef = "secondarySqlSessionFactory")
+@MapperScan(value="com.dev.springboot_multiple_database.mapper.databaseSecondary", sqlSessionFactoryRef = "secondarySqlSessionFactory")
 @EnableTransactionManagement
 public class MyBatisSecondaryConfiguration {
     @Bean(name = "secondarySqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("secondaryDataSource") DataSource dataSource, ApplicationContext applicationContext) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mybatis/mapper/database2/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mybatis/mapper/databaseSecondary/*.xml"));
 
         SqlSessionFactory factory = sqlSessionFactoryBean.getObject();
         factory.getConfiguration().setMapUnderscoreToCamelCase(true);
