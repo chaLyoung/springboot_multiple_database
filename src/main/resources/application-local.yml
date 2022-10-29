@@ -16,27 +16,27 @@ spring:
   datasource:
     hikari:
       primary:
-        driver-class-name:
-        jdbc-url:
-        username:
-        password:
-        connectionTimeout:
-        validationTimeout:
-        idleTimeout:
-        maxLifetime:
-        minimumIdle:
-        maximumPoolSize:
+        driver-class-name: "insert your primary database type"
+        jdbc-url: "your primary database path"
+        username: "primary database name here"
+        password: "primary database password here"
+        connectionTimeout: 5000
+        validationTimeout: 10000
+        idleTimeout: 10000
+        maxLifetime: 60000
+        minimumIdle: 5
+        maximumPoolSize: 10
       secondary:
-        driverClassName:
-        jdbc-url:
-        username:
-        password:
-        connectionTimeout:
-        validationTimeout:
-        idleTimeout:
-        maxLifetime:
-        minimumIdle:
-        maximumPoolSize:
+        driver-class-name: "insert your secondary database type"
+        jdbc-url: "your secondary database path"
+        username: "secondary database name here"
+        password: "secondary database password here"
+        connectionTimeout: 5000
+        validationTimeout: 10000
+        idleTimeout: 10000
+        maxLifetime: 60000
+        minimumIdle: 5
+        maximumPoolSize: 10
   session:
     store-type: jdbc
 #    jdbc:
