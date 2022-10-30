@@ -39,8 +39,8 @@ spring:
         maximumPoolSize: 10
   session:
     store-type: jdbc
-#    jdbc:
-#      initialize-schema: always
+    jdbc:
+      initialize-schema: always
 
 #  ############################################################
 #  # Restful Client Configuration
