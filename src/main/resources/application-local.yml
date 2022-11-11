@@ -1,4 +1,4 @@
-erver:
+server:
   port: 7979
   servlet:
     context-path: /
@@ -8,18 +8,19 @@ erver:
 
 spring:
   config:
-    activate:
-      on-profile: local
+    import: optional:classpath:.env[.properties]
+  activate:
+    on-profile: local
   ############################################################
   # DataSource 설정
   ############################################################\
   datasource:
     hikari:
       primary:
-        driver-class-name: "insert your primary database type"
-        jdbc-url: "your primary database path"
-        username: "primary database name here"
-        password: "primary database password here"
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: ${PRIMARY_DB_URL}
+        username: ${PRIMARY_DB_USERNAME}
+        password: ${PRIMARY_DB_PASSWORD}
         connectionTimeout: 5000
         validationTimeout: 10000
         idleTimeout: 10000
@@ -27,10 +28,10 @@ spring:
         minimumIdle: 5
         maximumPoolSize: 10
       secondary:
-        driver-class-name: "insert your secondary database type"
-        jdbc-url: "your secondary database path"
-        username: "secondary database name here"
-        password: "secondary database password here"
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: ${SECONDARY_DB_URL}
+        username: ${SECONDARY_DB_USERNAME}
+        password: ${SECONDARY_DB_PASSWORD}
         connectionTimeout: 5000
         validationTimeout: 10000
         idleTimeout: 10000
